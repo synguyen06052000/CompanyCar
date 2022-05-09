@@ -1,0 +1,83 @@
+@each $stt, $bg-color in (1, #495867) (2, #696969) (3, #2850a2) (4, #c4beba) (5, #676767) (6, #3d5fa1) {
+    #img-#{$stt} {
+        background: linear-gradient(#bbbdc0, $color-white-1, $color-white-1);
+    }
+    .vehicals__item:hover #img-#{$stt} {
+        background: linear-gradient($bg-color, $color-white-1, $color-white-1);
+    }
+    .delay-#{$stt} {
+        animation-delay: 0.2s * $stt;
+    }
+}
+@each $stt, $img in (1, banner-1) (2, banner-2) (3, banner-3) (4, banner-4) {
+    .carousel__swiper {
+        .swiper-container {
+            .swiper-wrapper {
+                .swiper-slide.carousel__item#{$stt} {
+                    background: url("../img/#{$img}.jpg");
+                    background-size: cover;
+                    background-position: center center;
+                    @media screen and (max-width: 768px) {
+                        background: url("../img/#{$img}-xs.jpg");
+                        background-size: cover;
+                        background-position: unset;
+                    }
+                    @media screen and (max-width: 576px) {
+                        background: url("../img/#{$img}-xs.jpg");
+                        background-size: cover;
+                        background-position: center 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@each $stt, $img in (1, slider-1) (2, slider-2) (3, slider-3) (4, slider-4) (5,slider-5) {
+    .carousel-inner {
+        .ourvehicles__item#{$stt} {
+            background: url("../img/#{$img}.jpg");
+            background-size: cover;
+            background-position: center center;
+            @media screen and (max-width: 768px) {
+                background: url("../img/#{$img}-xs.jpg");
+                background-size: cover;
+                background-position: unset;
+            }
+            @media screen and (max-width: 576px) {
+                background: url("../img/#{$img}-xs.jpg");
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+    }
+}
+@each $stt, $img in (1, item-1) (2, item-2) (3, item-3) (4, item-4) {
+    .services__container {
+        .services__item#{$stt} {
+            background: url("../img/#{$img}.jpg");
+            background-size: 120%;
+            background-position: center 1rem;
+            background-repeat: no-repeat;
+            background-color: $color-white-0;
+            @media screen and (min-width: 450px) and (max-width: 576px) {   
+                background-size: 100%;
+                
+            }
+            @media screen and (min-width: 769px) and (max-width: 992px){
+                background-size: 95%;
+            }
+        }
+    }
+}
+@each $stt, $img in (1, discover-1) (2, discover-2) (3, discover-3) (4, discover-4) (5, discover-5){
+    .discover{
+        .discover__item#{$stt}{
+            background: url("../img/#{$img}.jpg");
+            background-size: 120%;
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-color: $color-white-0;
+        }
+    }
+}

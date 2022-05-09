@@ -1,0 +1,30 @@
+// Helper
+@import "./Helpers/variables";
+@import "./Helpers/mixins";
+@import "./Helpers/functions";
+
+// Vendor
+
+// Base
+@import "./Base/reset";
+@import "./Base/nomallize";
+
+
+// Layout
+@import "./Layouts/header";
+@import "./Layouts/vehicles";
+@import "./Layouts/footerfinal";
+//Components
+@import "./Components/button";
+// Pages
+@import "./Pages/carousel";
+@import "./Pages/intro";
+@import "./Pages/ourVehicles";
+@import "./Pages/services";
+@import "./Pages/discover";
+
+// Reponsive
+@import "./Responsive/lgScreen";
+@import "./Responsive/mdScreen";
+@import "./Responsive/smScreen";
+@import "./Responsive/xsScreen";

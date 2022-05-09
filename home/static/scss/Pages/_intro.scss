@@ -1,0 +1,66 @@
+.intro {
+    background-color:$color-white-1;
+    .intro__container {
+        padding: 0 $pd-6;
+        .intro__left {
+            background-color: $color-black-0;
+            background: url("../img/our-vehicle-intro-1.jpg");
+            margin-top: $mg-0;
+            .intro__left--content {
+                color: $color-white-0;
+                position: absolute;
+                bottom: 10%;
+                font-size: $fs-1;
+                h4 {
+                    font-weight: $fw-2;
+                    margin-bottom: $mg-2;
+                    font-size: $fs-2;
+                }
+                p {
+                    font-weight: $fw-1;
+                    margin-bottom: $mg-3;
+                }
+            }
+        }
+        .intro__right {
+            background: url("../img/our-vehicles-intro-2.jpg");
+            margin-top: $mg-0;
+            .intro__right--content {
+                color: $color-white-0;
+                position: absolute;
+                top: 40%;
+                left: 5%;
+                font-size: $fs-2;
+                width: 40%;
+                .intro__overlay {
+                    background-color: $color-blue-2;
+                    display: inline-block;
+                    padding: $pd-0;
+                    margin-bottom: $mg-2 - 5;
+                    h4 {
+                        font-weight: $fw-2;
+                        margin-bottom: 0;
+                        font-size: $fs-2;
+                    }
+                }
+                p {
+                    font-size: $fs-1;
+                    font-weight: $fw-2;
+                    margin-bottom: $mg-2;
+                }
+            }
+        }
+        .intro__left,
+        .intro__right {
+            height: 350px;
+            position: relative;
+            background-size: cover;
+            background-position: center center;
+            background-clip: content-box;
+            p {
+                padding-right: $pd-2;
+                padding-left: $pd-0;
+            }
+        }
+    }
+}

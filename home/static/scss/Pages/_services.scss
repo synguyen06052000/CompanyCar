@@ -1,0 +1,51 @@
+.services {
+    background-color: $color-white-1;
+    .services__container {
+        padding: $pd-7 ($pd-6 + 0.6%);
+        .services__item {
+            height: 300px;
+            box-shadow: $boxshadow-1;
+            position: relative;
+            cursor: pointer;
+            transition: all .5s;
+            &:hover{
+                transform: translateY(-20px) ;
+            }
+            &:hover .intro__button--go{
+                background-color: transparent;
+                color: $color-blue-1;
+            }
+            div {
+                width: 100%;
+                position: absolute;
+                text-align: center;
+                top: 40%;
+                left: 0;
+                padding: 0 $pd-5;
+                h3 {
+                    font-size: $fs-2;
+                    font-weight: $fw-2;
+                    margin-bottom: $mg-1;
+                    color: $color-dark-blue-1;
+                }
+                p {
+                    font-size: $fs-1;
+                    font-weight: $fw-1;
+                    margin-bottom: $mg-2;
+                    color: $color-dark-blue-0;
+                }
+            }
+        }
+    }
+    .services__img1{
+        background-image: url("../img/intro-3.jpg")!important;
+        margin-top: 0!important;
+    }
+    .services__img2{
+        background-image: url("../img/intro-4.jpg")!important;
+        margin-top: 0!important;
+    }
+}
+.pd-col{
+    padding: $pd-0;
+}

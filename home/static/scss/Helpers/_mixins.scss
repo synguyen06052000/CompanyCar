@@ -1,0 +1,44 @@
+@mixin stylesButton($border-color, $bg, $color, $pd-x, $pd-y, $bg-hover, $color-hover) {
+    border: 2px solid $border-color;
+    border-radius: 40px;
+    background-color: $bg;
+    color: $color;
+    font-weight: $fw-2;
+    padding: $pd-y $pd-x;
+    &:hover {
+        background-color: $bg-hover;
+        color: $color-hover;
+    }
+}
+// mui ten huong len
+@mixin arrow($left, $right) {
+    content: "";
+    border-bottom: 15px solid white;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    position: absolute;
+    top: -15px;
+    left: $left;
+    right: $right;
+}
+// mui ten huong xuong
+@mixin arrowDown($left, $right) {
+    content: "";
+    border-top: 15px solid $color-white-1;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    position: absolute;
+    bottom: -25px;
+    left: $left;
+    right: $right;
+}
+@mixin socialIcon() {
+    width: 30px;
+    height: 30px;
+    background-color: $color-blue-0;
+    border-radius: 50%;
+    line-height: 30px;
+    color: $color-white-0;
+    font-size: $fs-1;
+    text-align: center;
+}

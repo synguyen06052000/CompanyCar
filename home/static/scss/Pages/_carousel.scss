@@ -1,0 +1,39 @@
+.carousel__swiper{
+    height: 750px;
+    margin-top: $mg-5;
+    background-color: $color-dark-blue-1;
+    .swiper-container{
+        height: 500px;
+        .swiper-wrapper{
+            height: 93%;
+            .swiper-slide{
+                height: 100%;
+            }
+        }
+        .swiper-pagination-bullet{
+            width: 12px;
+            height: 12px;
+            background-color: $color-blue-0;
+
+        }
+        .swiper-button-prev, .swiper-button-next{
+            top: 45%;
+            background-color: $color-white-2;
+            padding: $pd-5 $pd-4;
+            border-radius: 0.9rem;
+        }
+        .swiper-button-prev{
+            left: -0.8rem;
+        }
+        .swiper-button-next{
+            right: -0.8rem;
+        }
+        .carousel__swiperBt{
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 12%;
+            z-index: 9;
+        } 
+    }
+}

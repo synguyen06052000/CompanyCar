@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load staticfiles %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css' %}">
+        <link rel="stylesheet" href="{% static 'node_modules/animate.css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'node_modules/swiper/swiper-bundle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <style>
+            .button {
+              background-color: Crimson;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+      <!-- HEADER  -->
+      <header class="header">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+              <a href="index.html" class="navbar-brand no-border">
+                  <img src="{% static 'img/logo.jpg' %}" alt="">
+              </a>
+  
+  
+              <a href="#" id="head-vehicles" class="header-product-show d-none d-md-inline">VEHICLES <i
+                      class="fa fa-angle-down"></i>
+              </a>
+              <a href="#" id="head-vehicles" class="header-product-show d-inline d-md-none text-center">
+                  <i class="fa fa-car"></i>
+                  <br> vehicles
+              </a>
+              <a href="#" id="head-shoppingTool" class="header-product-show d-none d-md-inline">SHOPPING TOOLS 
+                  <i class="fa fa-angle-down">
+                  </i>
+              </a>
+              <a href="#" class="no-border d-md-none text-center d-inline">
+                  <i class="fa fa-map-marker-alt"></i> <br>Dealers
+              </a>
+  
+  
+  
+  
+              <button class="navbar-toggler ml-auto mr-3" data-toggle="collapse" data-target="#navbar-menu">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbar-menu">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item d-inline d-md-none">
+                        <a href="#" class="nav-link no-border" data-toggle="dropdown">Shopping tools</a>
+                      </li>
+                      <li class="nav-item d-none d-md-inline">
+                          <a href="#" class="no-border nav-link">
+                              <i class="fa fa-map-marker-alt"></i> Dealers
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link no-border">Owners</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a href="#" class="nav-link no-border" data-toggle="dropdown">Discovers</a>
+                          <div class="dropdown-menu header__discoverMenu">
+                              <div class="dropdown-menu__detail dropdown-item">
+                                  <div class="dropdown__left">
+                                      <h3>Technology</h3>
+                                      <ul>
+                                          <li>
+                                              <a href="#"> Honda Safety</a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> Honda Sensing</a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> How to Video & Guides <br> by Vehicles</a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> Environmental Vehicles</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="dropdown__right">
+                                      <h3>Comunity</h3>
+                                      <ul>
+                                          <li>
+                                              <a href="#">Auto Shows</a>
+                                          </li>
+                                          <li>
+                                              <a href="#">Serial One</a>
+                                          </li>
+                                          <li>
+                                              <a href="#">New & Events</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="dropdown-menu__social dropdown-item">
+                                  <i class="fab fa-facebook"></i>
+                                  <i class="fab fa-twitter"></i>
+                                  <i class="fab fa-youtube"></i>
+                                  <i class="fab fa-google-plus-g"></i>
+                                  <i class="fab fa-instagram"></i>
+                                  <i class="fa fa-transgender"></i>
+                                  <i class="fab fa-linkedin-in"></i>
+                                  <i class="fa fa-bell"></i>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="nav-item d-none d-md-flex align-items-center">
+                          <a href="#header__searchArea" class="nav-link no-border" data-toggle="collapse"
+                              id="header__search">
+                              <i class="fa fa-search header__iconSearch"></i>
+                              <i class="fa fa-times d-none header__iconTime"></i>
+                          </a>
+                      </li>
+                      <li class="nav-item header__searchArea d-flex align-items-center  d-md-none"
+                          id="header__searchArea">
+                          <i class="fa fa-search"></i>
+                          <input class="mx-2" placeholder="Search for anything Honda">
+                          <button class="btn btn-search">SEARCH</button>
+                      </li>
+                      <button class="button"> 
+                        <a href="/login" class="btn-login">Login</a>
+                    </button>
+                  </ul>
+              </div>
+  
+          </nav>
+          <section class="vehicles hide-vehicles ">
+              <section class="vehicles__content container-fluid">
+                  <div class="row">
+                      <div class="col">
+                          <div class="vehicles__nav animate__animated ">
+                              <ul>
+                                  <li class="active">
+                                      <a class="vehicles-click" href="#" id="car-nav">CARS</a>
+                                  </li>
+                                  <li>
+                                      <a class="vehicles-click" href="#" id="suv-nav">CROSSOVER & SUV</a>
+                                  </li>
+                                  <li>
+                                      <a class="vehicles-click" href="#" id="truck-nav">MINIVAN & TRUCK</a>
+                                  </li>
+                                  <li>
+                                      <a class="vehicles-click" href="#" id="enviroment-nav">ENVIRONMENTAL</a>
+                                  </li>
+                                  <li>
+                                      <a class="vehicles-click" href="#" id="future-nav">FUTURE</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="vehicles__close animate__animated d-none d-md-block">
+                      <div class="vehicles__circle">
+                          <i class="fa fa-times"></i>
+                      </div>
+                      <p class="mb-0">CLOSE</p>
+                  </div>
+  
+                  <div class="vehicles__list animate__animated ">
+                      <div class="row">
+                          <div class="col-12" id="car-vehicles">
+                              <hr size="2" class="line">
+                              <div class="vehicles__title text-center">
+                                  <h1 class="d-inline ">CARS <i class="fa fa-circle"></i>
+                                      <span>Sedans</span>
+                                  </h1>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-1">
+                              <div class="vehicles__img" id="img-1">
+                                  <img src="{% static 'img/xe-1.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-1-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-2">
+                              <div class="vehicles__img" id="img-2">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-3">
+                              <div class="vehicles__img" id="img-3">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-4">
+                              <div class="vehicles__img" id="img-4">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-5">
+                              <div class="vehicles__img" id="img-5">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12 vehicles__item delay-6">
+                              <div class="vehicles__img" id="img-6">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+  
+  
+  
+                          <div class="col-12" id="suv-vehicles">
+                              <hr size="2" class="line">
+                              <div class="vehicles__title text-center">
+                                  <h1 class="d-inline ">CROSSOVER & SUV <i class="fa fa-circle"></i>
+                                      <span>Sedans</span>
+                                  </h1>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-1">
+                                  <img src="{% static 'img/xe-1.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-1-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-2">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-3">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-4">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-5">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-6">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+  
+  
+  
+                          <div class="col-12" id="truck-vehicles">
+                              <hr size="2" class="line">
+                              <div class="vehicles__title text-center">
+                                  <h1 class="d-inline ">MINIVAN & TRUCK <i class="fa fa-circle"></i>
+                                      <span>Sedans</span>
+                                  </h1>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item ">
+                              <div class="vehicles__img" id="img-1">
+                                  <img src="{% static 'img/xe-1.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-1-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-2">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-3">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-4">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-5">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-6">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+  
+  
+  
+                          <div class="col-12" id="environment-vehicles">
+                              <hr size="2" class="line">
+                              <div class="vehicles__title text-center">
+                                  <h1 class="d-inline ">ENVIRONMENTAL <i class="fa fa-circle"></i>
+                                      <span>Sedans</span>
+                                  </h1>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item ">
+                              <div class="vehicles__img" id="img-1">
+                                  <img src="{% static 'img/xe-1.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-1-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-2">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-3">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-4">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-5">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-6">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+  
+  
+  
+  
+  
+                          <div class="col-12" id="future-vehicles">
+                              <hr size="2" class="line">
+                              <div class="vehicles__title text-center">
+                                  <h1 class="d-inline ">FUTURE<i class="fa fa-circle"></i>
+                                      <span>Sedans</span>
+                                  </h1>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item ">
+                              <div class="vehicles__img" id="img-1">
+                                  <img src="{% static 'img/xe-1.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-1-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-2">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-3">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-4">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-5">
+                                  <img src="{% static 'img/xe-2.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-2-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 col-12  vehicles__item">
+                              <div class="vehicles__img" id="img-6">
+                                  <img src="{% static 'img/xe-3.png' %}" class="img-fluid" alt="">
+                                  <img src="{% static 'img/xe-3-hover.png' %}" class="img-fluid" alt="">
+                              </div>
+                              <h2 class="text-center">Civic Sedan</h2>
+                              <div class="vehicles__info d-flex justify-content-around">
+                                  <div class="vehicles__leftInfo">
+                                      <h3>$100,000</h3>
+                                      <p>staring</p>
+                                      <p>MSRP</p>
+                                  </div>
+                                  <div class="vehicles__rightInfo">
+                                      <h3>40/28</h3>
+                                      <p>Hwy/City</p>
+                                      <p>MPGRating</p>
+                                  </div>
+                              </div>
+                              <div class="vehicles__button text-center">
+                                  <button class="btn vehicles__explore">EXPLORE</button>
+                                  <button class="btn vehicles__build">BUILD</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </section>
+          <section class="header__searchArea collapse" id="header__searchArea">
+              <i class="fa fa-search"></i>
+              <input type="text" name="" id="" placeholder="Search for anything Honda">
+              <button class="btn btn-search">SEARCH</button>
+          </section>
+      </header>
+  
+      <!-- CAROUSEL  -->
+      <section class="carousel__swiper">
+          <!-- Slider main container -->
+          <div class="swiper-container">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide carousel__item1">
+                  </div>
+                  <div class="swiper-slide carousel__item2"></div>
+                  <div class="swiper-slide carousel__item3"></div>
+                  <div class="swiper-slide carousel__item4"></div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+  
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="carousel__swiperBt"><button class="btn carousel__btn">EXPLORE</button></div>
+  
+          </div>
+      </section>
+  
+      <!-- INTRO  -->
+      <section class="intro">
+          <div class="container-fluid intro__container">
+              <div class="row">
+                  <div class="col-md-6 intro__left wow animate__animated animate__fadeInLeft">
+                      <div class="intro__left--content text-center">
+                          <h4>Future Vehicles</h4>
+                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio non quas eius! Amet, dicta
+                              assumenda. Veritatis ipsum autem qui molestias.</p>
+                          <button class="btn intro__button--go">GO</button>
+                      </div>
+                  </div>
+                  <div class="col-md-6 intro__right wow animate__animated animate__fadeInRight">
+                      <div class="intro__right--content">
+                          <div class="intro__overlay">
+                              <h4>BUILD & PRICE</h4>
+                          </div>
+  
+                          <p class="">Personalize a 2018 ACCORD SEDAN to make it your own</p>
+                          <button class="btn intro__btn-build">BUILD MY VEHICLES</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- OURVEHICLES -->
+      <section class="ourVehicles">
+          <h1 class="display-1 text-center wow animate__animated animate__fadeInDown">Our Vehicles</h1>
+          <div class="carousel slide ourvehicles__carousel wow animate__animated animate__fadeInUp" data-ride="carousel"
+              id="carousel-slider-vehicles">
+              <ol class="carousel-indicators__config d-none d-md-flex list-unstyled justify-content-around w-75 mx-auto">
+                  <li class="active" data-slide-to="0" data-target="#carousel-slider-vehicles">CARS</li>
+                  <li data-slide-to="1" data-target="#carousel-slider-vehicles">CROSSOVER & SUVS</li>
+                  <li data-slide-to="2" data-target="#carousel-slider-vehicles">MINIVAN & TRUCK</li>
+                  <li data-slide-to="3" data-target="#carousel-slider-vehicles">ENVIRONMENTAL</li>
+                  <li data-slide-to="4" data-target="#carousel-slider-vehicles">FUTURE</li>
+              </ol>
+              <div class="carousel__indicator--xs d-block d-md-none">
+                  <div class="d-flex align-items-center carousel__indicator--xsheader">
+                      <h1 class="indicator-title">
+                          VEHICLES CATEGORIES
+                          <br>
+                          <span>CARS</span>
+                      </h1>
+                      <i class="fa fa-angle-down"></i>
+                  </div>
+  
+                  <ol>
+                      <li data-slide-to="0" data-target="#carousel-slider-vehicles">CARS</li>
+                      <li data-slide-to="1" data-target="#carousel-slider-vehicles">CROSSOVER & SUVS</li>
+                      <li data-slide-to="2" data-target="#carousel-slider-vehicles">MINIVAN & TRUCK</li>
+                      <li data-slide-to="3" data-target="#carousel-slider-vehicles">ENVIRONMENTAL</li>
+                      <li data-slide-to="4" data-target="#carousel-slider-vehicles">FUTURE</li>
+                  </ol>
+              </div>
+              <div class="carousel-inner">
+                  <div class="carousel-item active ourvehicles__item1">
+  
+                      <div class="carousel-caption__config">
+                          <p>CAR 1<span>/12</span></p>
+                          <img src="{% static 'img/civic-logo.jpg' %}" class="img-fluid" alt="">
+                          <p class="caption-content d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Incidunt
+                              molestiae mollitia perferendis aspernatur illum? Beatae veniam facere accusantium deleniti!
+                              Recusandae!</p>
+                          <div class="carousel-caption-detail">
+                              <div class="carousel-detail-content">
+                                  <h2>$23,570</h2>
+                                  <p>STARTTING MSRP</p>
+                              </div>
+                              <div class="carousel-detail-content">
+                                  <h2>38/30</h2>
+                                  <p>HWY/CITY RATING</p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between justify-content-md-none">
+                              <div class="carousel__swiperBt mr-3"><button
+                                      class="btn carousel__btn btn__caption">EXPLORE</button></div>
+                              <button class="btn intro__btn-build btn__caption">BUILD</button>
+                          </div>
+                      </div>
+                      <div class="carousel-caption__footer d-flex justify-content-around align-items-center">
+                          <a href="#">EXPLORE THE ACCORD FAMILY ></a>
+                          <img src="{% static 'img/accord-family-vehicles-2x.png' %}" class="d-none d-lg-block" alt="">
+                      </div>
+                  </div>
+                  <div class="carousel-item ourvehicles__item2">
+  
+                      <div class="carousel-caption__config">
+                          <p>CAR 1<span>/12</span></p>
+                          <img src="{% static 'img/civic-logo.jpg' %}" class="img-fluid" alt="">
+                          <p class="caption-content d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Incidunt
+                              molestiae mollitia perferendis aspernatur illum? Beatae veniam facere accusantium deleniti!
+                              Recusandae!</p>
+                          <div class="carousel-caption-detail">
+                              <div class="carousel-detail-content">
+                                  <h2>$23,570</h2>
+                                  <p>STARTTING MSRP</p>
+                              </div>
+                              <div class="carousel-detail-content">
+                                  <h2>38/30</h2>
+                                  <p>HWY/CITY RATING</p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between justify-content-md-none">
+                              <div class="carousel__swiperBt mr-3"><button
+                                      class="btn carousel__btn btn__caption">EXPLORE</button></div>
+                              <button class="btn intro__btn-build btn__caption">BUILD</button>
+                          </div>
+                      </div>
+                      <div class="carousel-caption__footer d-flex justify-content-around align-items-center">
+                          <a href="#">EXPLORE THE ACCORD FAMILY ></a>
+                          <img src="{% static 'img/accord-family-vehicles-2x.png' %}" class="id-none d-lg-block" alt="">
+                      </div>
+                  </div>
+                  <div class="carousel-item ourvehicles__item3">
+                      <div class="carousel-caption__config">
+                          <p>CAR 1<span>/12</span></p>
+                          <img src="{% static 'img/civic-logo.jpg' %}" class="img-fluid" alt="">
+                          <p class="caption-content d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Incidunt
+                              molestiae mollitia perferendis aspernatur illum? Beatae veniam facere accusantium deleniti!
+                              Recusandae!</p>
+                          <div class="carousel-caption-detail">
+                              <div class="carousel-detail-content">
+                                  <h2>$23,570</h2>
+                                  <p>STARTTING MSRP</p>
+                              </div>
+                              <div class="carousel-detail-content">
+                                  <h2>38/30</h2>
+                                  <p>HWY/CITY RATING</p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between justify-content-md-none">
+                              <div class="carousel__swiperBt mr-3"><button
+                                      class="btn carousel__btn btn__caption">EXPLORE</button></div>
+                              <button class="btn intro__btn-build btn__caption">BUILD</button>
+                          </div>
+                      </div>
+                      <div class="carousel-caption__footer d-flex justify-content-around align-items-center">
+                          <a href="#">EXPLORE THE ACCORD FAMILY ></a>
+                          <img src="{% static 'img/accord-family-vehicles-2x.png' %}" class="d-none d-lg-block" alt="">
+                      </div>
+                  </div>
+                  <div class="carousel-item ourvehicles__item4">
+                      <div class="carousel-caption__config">
+                          <p>CAR 1<span>/12</span></p>
+                          <img src="{% static 'img/civic-logo.jpg' %}" class="img-fluid" alt="">
+                          <p class="caption-content d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Incidunt
+                              molestiae mollitia perferendis aspernatur illum? Beatae veniam facere accusantium deleniti!
+                              Recusandae!</p>
+                          <div class="carousel-caption-detail">
+                              <div class="carousel-detail-content">
+                                  <h2>$23,570</h2>
+                                  <p>STARTTING MSRP</p>
+                              </div>
+                              <div class="carousel-detail-content">
+                                  <h2>38/30</h2>
+                                  <p>HWY/CITY RATING</p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between justify-content-md-none">
+                              <div class="carousel__swiperBt mr-3"><button
+                                      class="btn carousel__btn btn__caption">EXPLORE</button></div>
+                              <button class="btn intro__btn-build btn__caption">BUILD</button>
+                          </div>
+                      </div>
+                      <div class="carousel-caption__footer d-flex justify-content-around align-items-center">
+                          <a href="#">EXPLORE THE ACCORD FAMILY ></a>
+                          <img src="{% static 'img/accord-family-vehicles-2x.png' %}" class="d-none d-lg-block" alt="">
+                      </div>
+                  </div>
+                  <div class="carousel-item ourvehicles__item5">
+                      <div class="carousel-caption__config">
+                          <p>CAR 1<span>/12</span></p>
+                          <img src="{% static 'img/civic-logo.jpg' %}" class="img-fluid" alt="">
+                          <p class="caption-content d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Incidunt
+                              molestiae mollitia perferendis aspernatur illum? Beatae veniam facere accusantium deleniti!
+                              Recusandae!</p>
+                          <div class="carousel-caption-detail">
+                              <div class="carousel-detail-content">
+                                  <h2>$23,570</h2>
+                                  <p>STARTTING MSRP</p>
+                              </div>
+                              <div class="carousel-detail-content">
+                                  <h2>38/30</h2>
+                                  <p>HWY/CITY RATING</p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-between justify-content-md-none">
+                              <div class="carousel__swiperBt mr-3"><button
+                                      class="btn carousel__btn btn__caption">EXPLORE</button></div>
+                              <button class="btn intro__btn-build btn__caption">BUILD</button>
+                          </div>
+                      </div>
+                      <div class="carousel-caption__footer d-flex justify-content-around align-items-center">
+                          <a href="#">EXPLORE THE ACCORD FAMILY ></a>
+                          <img src="{% static 'img/accord-family-vehicles-2x.png' %}" class="d-none d-lg-block" alt="">
+                      </div>
+                  </div>
+              </div>
+              <a href="#carousel-slider-vehicles" class="carousel-control-prev" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+              </a>
+              <a href="#carousel-slider-vehicles" class="carousel-control-next" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+              </a>
+          </div>
+      </section>
+  
+      <!-- SERVICES -->
+      <section class="services">
+          <div class="container-fluid services__container wow animate__animated animate__fadeInLeft">
+              <div class="row">
+                  <div class="col-sm-6 col-lg-3 pd-col">
+                      <div class="services__item services__item1">
+                          <div>
+                              <h3>Buid & Price</h3>
+                              <p>Customize a honda vehicle to make your very own</p>
+                              <!-- tai su dung -->
+                              <button class="btn intro__button--go">GO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3 pd-col">
+                      <div class="services__item services__item2">
+                          <div>
+                              <h3>Compare Vehicles</h3>
+                              <p>Customize a honda vehicle to make your very own</p>
+                              <button class="btn intro__button--go">GO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3 pd-col">
+                      <div class="services__item services__item3">
+                          <div>
+                              <h3>Search Inventory</h3>
+                              <p>Customize a honda vehicle to make your very own</p>
+                              <button class="btn intro__button--go">GO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3 pd-col">
+                      <div class="services__item services__item4">
+                          <div>
+                              <h3>Current Offers</h3>
+                              <p>Customize a honda vehicle to make your very own</p>
+                              <button class="btn intro__button--go">GO</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- tai su dung phan intro  -->
+          <div class="intro wow animate__animated animate__fadeInRight">
+              <div class="container-fluid intro__container">
+                  <div class="row">
+                      <div class="col-md-6 intro__left services__img1">
+                          <div class="intro__left--content text-center">
+                              <h4>Future Vehicles</h4>
+                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio non quas eius! Amet,
+                                  dicta
+                                  assumenda. Veritatis ipsum autem qui molestias.</p>
+                              <button class="btn intro__button--goR">GO</button>
+                          </div>
+                      </div>
+                      <div class="col-md-6 intro__left services__img2">
+                          <div class="intro__left--content text-center">
+                              <h4>Future Vehicles</h4>
+                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio non quas eius! Amet,
+                                  dicta
+                                  assumenda. Veritatis ipsum autem qui molestias.</p>
+                              <button class="btn intro__button--goR">GO</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  
+  
+      <!-- DISCOVER  -->
+      <section class="discover">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12 discover__title text-center">
+                      <h1 class="display-1 wow animate__animated animate__fadeInUp">Discover Honda</h1>
+                      <span class="wow animate__animated animate__fadeInDown">Explore the world of Honda through our
+                          latest news, events and videos.</span>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp">
+                      <div class="discover__item discover__item1">
+                          <div class="discover__item--content">
+                              <h2>2017 KBB.com Most Awarded Brand</h2>
+                              <p>With more than two dozen brand and individual awards, Kelly Blue Book's KBB.com has
+                                  awarded Honda as the most awarded brand of 2017.</p>
+                              <a href="#">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp delay-1">
+                      <div class="discover__item discover__item2">
+                          <div class="discover__item--content">
+                              <h2>Meet The Accord</h2>
+                              <p>With more than two dozen brand and individual awards, Kelly Blue Book's KBB.com has
+                                  awarded Honda as the most awarded brand of 2017.</p>
+                              <a href="#">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp delay-2">
+                      <div class="discover__item discover__item3">
+                          <div class="discover__item--content">
+                              <h2>Innovative & Refined</h2>
+                              <p>With more than two dozen brand and individual awards, Kelly Blue Book's KBB.com has
+                                  awarded Honda as the most awarded brand of 2017.</p>
+                              <a href="#">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp delay-3">
+                      <div class="discover__item discover__item4">
+                          <div class="discover__item--content">
+                              <h2>Honda Sensing</h2>
+                              <p>With more than two dozen brand and individual awards, Kelly Blue Book's KBB.com has
+                                  awarded Honda as the most awarded brand of 2017.</p>
+                              <a href="#">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp delay-4">
+                      <div class="discover__item discover__item5">
+                          <div class="discover__item--content">
+                              <h2>2018 Green Car Of Year</h2>
+                              <p>With more than two dozen brand and individual awards, Kelly Blue Book's KBB.com has
+                                  awarded Honda as the most awarded brand of 2017.</p>
+                              <a href="#">Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 pd-col wow animate__animated animate__fadeInUp delay-5">
+                      <div class="discover__item discover__item6">
+                          <i class="fab fa-twitter"></i>
+                          <div class="discover__item--twitter">
+                              <div class="discover__logo d-flex">
+                                  <img src="{% static 'img/logo-honda.jpg' %}" alt="">
+                                  <p>
+                                      <a href="#"> Honda</a>
+                                      <br>
+                                      <a href="#">@Honda</a>
+                                  </p>
+                              </div>
+                              <p>You don’t know what surprises can pop up on the road. #RemoveTheDistractions 📵 when
+                                  you’re behind the wheel.
+                                  <a href="#">https://t.co/UC7OLudVr4</a>
+                              </p>
+                              <p><a href="#">12:00 AM - 07 Apr 2018</a></p>
+                              <p class="discover__twitter--icon">
+                                  <span><i class="fa fa-reply"></i></span>
+                                  <span><i class="fa fa-retweet"></i> 10</span>
+                                  <span><i class="fa fa-heart"></i> 23</span>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 text-center">
+                      <button class="btn carousel__btn my-5">MORE NEW & EVENTS</button>
+                  </div>
+              </div>
+          </div>
+          <!-- SEARCH  -->
+          <!-- tai su dung class header__searchArea  -->
+          <section class="header__searchArea search__footer d-flex justify-content-between align-items-center" id="">
+              <div class="order-2 order-md-1">
+                  <i class="fa fa-search"></i>
+                  <input type="text" placeholder="Type Something">
+                  <button class="btn btn-search">SEARCH</button>
+              </div>
+              <p class="back-to-top order-1 order-md-2">Back To top <i class="fa fa-angle-up"></i></p>
+          </section>
+      </section>
+  
+      <!-- FOOTER  -->
+      <footer class="footer d-flex">
+          <div class="footer__detail">
+              <h1 class="d-none d-md-block">Vehicles</h1>
+              <h1 class="d-flex d-md-none" data-toggle="collapse" data-target="#footer__vehicles--nav">
+                  <span>Vehicles</span>
+                  <i class="fa fa-plus"></i>
+              </h1>
+              <div id="footer__vehicles--nav" class="ul__collapse">
+                  <ul class="list-unstyled">
+                      <li>
+                          <a href="#">Accord Models</a>
+                      </li>
+                      <li>
+                          <a href="#">Civic Models</a>
+                      </li>
+                      <li>
+                          <a href="#">Clarity Serries</a>
+                      </li>
+                      <li>
+                          <a href="#">Fit Hatchback</a>
+                      </li>
+                      <li>
+                          <a href="#">HR-V Crossover</a>
+                      </li>
+                      <li>
+                          <a href="#">CR-V Crossover</a>
+                      </li>
+                      <li>
+                          <a href="#">Passport SUV</a>
+                      </li>
+                  </ul>
+              </div>
+  
+          </div>
+          <div class="footer__detail">
+              <h1 class="d-none d-md-block">Shopping Tools</h1>
+              <h1 class="d-flex d-md-none" data-toggle="collapse" data-target="#footer__tools--nav">
+                  <span>Shopping Tools</span>
+                  <i class="fa fa-plus"></i>
+              </h1>
+              <div id="footer__tools--nav" class="ul__collapse">
+                  <ul class="list-unstyled">
+                      <li>
+                          <a href="#">Build & Price</a>
+                      </li>
+                      <li>
+                          <a href="#">See Offers</a>
+                      </li>
+                      <li>
+                          <a href="#">Search Inventory</a>
+                      </li>
+                      <li>
+                          <a href="#">Estimate Payments</a>
+                      </li>
+                      <li>
+                          <a href="#">Apply for Financing</a>
+                      </li>
+                      <li>
+                          <a href="#">Trade-In Value</a>
+                      </li>
+                      <li>
+                          <a href="#">Honda Financial Services</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer__detail">
+              <h1 class="d-none d-md-block">Discover Honda</h1>
+              <h1 class="d-flex d-md-none" data-toggle="collapse" data-target="#footer__discover--nav">
+                  <span>Discover Honda</span>
+                  <i class="fa fa-plus"></i>
+              </h1>
+              <div id="footer__discover--nav" class="ul__collapse">
+                  <ul class="list-unstyled">
+                      <li>
+                          <a href="#">About Us</a>
+                      </li>
+                      <li>
+                          <a href="#">News & Events</a>
+                      </li>
+                      <li>
+                          <a href="#">Awards, Accolades & Ratings</a>
+                      </li>
+                      <li>
+                          <a href="#">Careers</a>
+                      </li>
+                      <li>
+                          <a href="#">Corporate Social Responsibility</a>
+                      </li>
+                      <li>
+                          <a href="#">Honda in America</a>
+                      </li>
+                      <li>
+                          <a href="#">Honda Worldwide</a>
+                      </li>
+                  </ul>
+              </div>
+  
+          </div>
+          <div class="footer__detail">
+              <h1 class="d-none d-md-block">Help & Support</h1>
+              <h1 class="d-flex d-md-none" data-toggle="collapse" data-target="#footer__help--nav">
+                  <span>Help & Support</span>
+                  <i class="fa fa-plus"></i>
+              </h1>
+              <div id="footer__help--nav" class="ul__collapse">
+                  <ul class="list-unstyled">
+                      <li>
+                          <a href="#">FAQ</a>
+                      </li>
+                      <li>
+                          <a href="#">Customer Service</a>
+                      </li>
+                      <li>
+                          <a href="#">Mobility Assistance Program</a>
+                      </li>
+                      <li>
+                          <a href="#">Rear Entertainment System <br> Accessibility for Individuals <br> with
+                              Disabilities</a>
+                      </li>
+                      <li>
+                          <a href="#">Buyer’s Guide</a>
+                      </li>
+                      <li>
+                          <a href="#">COVID-19 Response</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer__detail">
+              <h1 class="d-none d-md-block">Owners</h1>
+              <h1 class="d-flex d-md-none" data-toggle="collapse" data-target="#footer__owner--nav">
+                  <span>Owners</span>
+                  <i class="fa fa-plus"></i>
+              </h1>
+              <div id="footer__owner--nav" class="ul__collapse">
+                  <ul class="list-unstyled">
+                      <li>
+                          <a href="#">Honda Owners Site</a>
+                      </li>
+                      <li>
+                          <a href="#">Schedule Service</a>
+                      </li>
+                      <li>
+                          <a href="#">Parts & Service</a>
+                      </li>
+                      <li>
+                          <a href="#">Certified Body Shop Locator <br> eStore</a>
+                      </li>
+                      <li>
+                          <a href="#">Roadside Assistance <br>
+                              Pay My Bill</a>
+                      </li>
+                      <li>
+                          <a href="#">Radio & Navi Codes</a>
+                      </li>
+                      <li>
+                          <a href="#">HondaLink®</a>
+                      </li>
+                  </ul>
+              </div>
+  
+          </div>
+          <div class="footer__touch">
+              <div class="touch__left">
+                  <h1>Stay In Touch</h1>
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter"></i>
+                  <i class="fab fa-youtube"></i>
+                  <i class="fab fa-google-plus-g"></i>
+                  <i class="fab fa-instagram"></i>
+                  <i class="fa fa-transgender"></i>
+                  <i class="fab fa-linkedin-in"></i>
+                  <i class="fa fa-bell"></i>
+              </div>
+              <div class="touch__right">
+                  <p>Receive the latest news and exclusive updates.</p>
+                  <button class="btn btn-search">
+                      <i class="fa fa-envelope "></i>
+                      STAY INFORMED
+                  </button>
+              </div>
+          </div>
+      </footer>
+      <footer class="footer--copyRight">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-5">
+                      <div class="footer__left">
+                          <p>©2021
+                              <a href="#">American Honda Motor Co., Inc.
+                              </a>
+                              All information contained herein
+                              applies to U.S. vehicles only. For non-U.S.-distributor information go to
+                              <a href="#">world.honda.com</a>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="col-md-7">
+                      <div class="footer__right">
+                          <ul class="list-unstyled d-flex">
+                              <li>
+                                  <a href="#">
+                                      Vehicles Data Privacy
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      Privacy Policy
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      Tarms & Conditions
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      Site Map
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-md-12 ">
+                      <div class="footer__logo d-flex ">
+                          <img src="{% static 'img/footer-logo-1.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-2.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-3.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-4.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-5.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-6.jpg' %}" alt="">
+                          <img src="{% static 'img/footer-logo-7.png' %}" alt="">
+                          <img src="{% static 'img/footer-logo-8.jpg' %}" alt="">
+                      </div>
+  
+                  </div>
+              </div>
+          </div>
+      </footer>
+      {% block scripts %}
+          <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+          <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
+          <script src="{% static 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js' %}"></script>
+          <script src="{% static 'node_modules/swiper/swiper-bundle.js' %}"></script>
+          <script src="{% static 'node_modules/wow.js/dist/wow.min.js' %}"></script>
+          
+          <script type="text/javascript"  src="{% static 'js/main.js' %}"></script>
+        {% endblock %} 
+  </body>
+</html>

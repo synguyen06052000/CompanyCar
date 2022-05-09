@@ -1,0 +1,80 @@
+.vehicles__explore {
+    @include stylesButton(
+        $color-blue-0,
+        $color-blue-0,
+        $color-white-0,
+        $pd-5,
+        $pd-1 - 5,
+        $color-white-0,
+        $color-blue-1
+    );
+    margin-right: $mg-1;
+}
+.vehicles__build {
+    @include stylesButton(
+        $color-blue-1,
+        $color-white-0,
+        $color-blue-0,
+        $pd-5,
+        $pd-1 - 5,
+        $color-blue-0,
+        $color-white-0
+    );
+}
+.btn-search {
+    @include stylesButton($color-blue-1, transparent, $color-blue-0, $pd-5, $pd-1 - 5, $color-blue-0, $color-white-0);
+    margin-top: $mg-2 * -1;
+    @media screen and (max-width: 576px) {
+        @include stylesButton(
+            $color-white-0,
+            transparent,
+            $color-white-0,
+            $pd-1,
+            $pd-0 - 2,
+            $color-white-0,
+            $color-blue-2
+        );
+        margin-top: 0;
+        border-radius: 5px;
+    }
+    @media screen and (max-width: 768px) {
+        @include stylesButton(
+            $color-white-0,
+            transparent,
+            $color-white-0,
+            $pd-1,
+            $pd-0 - 2,
+            $color-white-0,
+            $color-blue-2
+        );
+        margin-top: 0;
+        border-radius: 5px;
+    }
+}
+.carousel__btn {
+    @include stylesButton(
+        $color-orange-0,
+        $color-orange-0,
+        $color-white-0,
+        $pd-1,
+        $pd-0,
+        $color-white-0,
+        $color-orange-0
+    );
+}
+.intro__button--go{
+    @include stylesButton($color-blue-1, $color-blue-1, $color-white-0,$pd-1,$pd-0,transparent,$color-blue-0);
+}
+.intro__button--goR{
+    @include stylesButton($color-orange-0, $color-orange-0, $color-white-0,$pd-1,$pd-0,$color-white-0,$color-orange-0);
+}
+.intro__btn-build{
+    @include stylesButton($color-white-0, transparent, $color-white-0,$pd-1,$pd-0,$color-white-0,$color-blue-0);
+}
+.btn__caption{
+    padding: $pd-0 $pd-4;
+    @media screen and (max-width: 576px){
+        font-size: $fs-1 - 0.2rem;
+        padding: $pd-0 $pd-2;
+    }
+}
